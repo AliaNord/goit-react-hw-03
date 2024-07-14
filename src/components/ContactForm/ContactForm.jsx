@@ -1,5 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from 'yup'
+import s from'./ContactForm.module.css'
 
 const ContactForm = ({handleNewContact}) => {
   const registerSchema = Yup.object({
@@ -27,26 +28,26 @@ const ContactForm = ({handleNewContact}) => {
         initialValues={initialValues}
         onSubmit={handleSubmit}
       >
-        <Form>
-          <label>
+        <Form className={s.form}>
+          <label className={s.label}>
             <span>Name</span>
-            <Field name="name" />
+            <Field name="name"   className={s.input}/>
             <ErrorMessage
               name="name"
               component="span"
-              className="error-message"
+              className={s.error}
             />
           </label>
-          <label>
+          <label className={s.label}>
             <span>Number</span>
-            <Field name="number" />
+            <Field name="number"  className={s.input} />
             <ErrorMessage
               name="number"
               component="span"
-              className="error-message"
+              className={s.error}
             />
           </label>
-          <button type="submit">Add contact</button>
+          <button type="submit"  className={s.button}>Add contact</button>
         </Form>
       </Formik>
     </div>
